@@ -1,0 +1,160 @@
+﻿@{
+    ViewData["Title"] = "Formulario de Registro";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center">Formulario de Registro</h1>
+    <form method="post" action="/Home/SubmitForm">
+        <!-- Periodo -->
+        <div class="form-group">
+            <label for="ingreso">Periodo de Ingreso</label>
+            <input type="date" class="form-control" id="ingreso" name="ingreso">
+        </div>
+        <div class="form-group">
+            <label for="egreso">Periodo de Egreso</label>
+            <input type="date" class="form-control" id="egreso" name="egreso">
+        </div>
+
+        <!-- Datos Personales -->
+        <h3 class="mt-4">Datos Personales</h3>
+        <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" id="nombre" name="nombre">
+        </div>
+        <div class="form-group">
+            <label for="apellidoP">Apellido Paterno</label>
+            <input type="text" class="form-control" id="apellidoP" name="apellidoP">
+        </div>
+        <div class="form-group">
+            <label for="apellidoM">Apellido Materno</label>
+            <input type="text" class="form-control" id="apellidoM" name="apellidoM">
+        </div>
+        <div class="form-group">
+            <label for="genero">Género</label>
+            <select class="form-control" id="genero" name="genero">
+                <option>Masculino</option>
+                <option>Femenino</option>
+                <option>Otro</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="nacionalidad">Nacionalidad</label>
+            <input type="text" class="form-control" id="nacionalidad" name="nacionalidad">
+        </div>
+        <div class="form-group">
+            <label for="paisOrigen">País de Origen</label>
+            <input type="text" class="form-control" id="paisOrigen" name="paisOrigen">
+        </div>
+        <div class="form-group">
+            <label for="estadoCivil">Estado Civil</label>
+            <select class="form-control" id="estadoCivil" name="estadoCivil">
+                <option>Soltero</option>
+                <option>Casado</option>
+                <option>Divorciado</option>
+                <option>Viudo</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="hijos">Hijos</label>
+            <input type="number" class="form-control" id="hijos" name="hijos">
+        </div>
+        <div class="form-group">
+            <label for="discapacidad">Discapacidad</label>
+            <input type="text" class="form-control" id="discapacidad" name="discapacidad">
+        </div>
+
+        <!-- Lugar de Nacimiento -->
+        <h3 class="mt-4">Lugar de Nacimiento</h3>
+        <div class="form-group">
+            <label for="fechaNacimiento">Fecha de Nacimiento</label>
+            <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento">
+        </div>
+        <div class="form-group">
+            <label for="municipioNacimiento">Municipio</label>
+            <input type="text" class="form-control" id="municipioNacimiento" name="municipioNacimiento">
+        </div>
+        <div class="form-group">
+            <label for="estadoNacimiento">Estado</label>
+            <input type="text" class="form-control" id="estadoNacimiento" name="estadoNacimiento">
+        </div>
+
+        <!-- Datos Escolares -->
+        <h3 class="mt-4">Datos Escolares</h3>
+        <div class="form-group">
+            <label for="campus">Campus</label>
+            <input type="text" class="form-control" id="campus" name="campus">
+        </div>
+        <div class="form-group">
+            <label for="facultad">Facultad</label>
+            <input type="text" class="form-control" id="facultad" name="facultad">
+        </div>
+        <div class="form-group">
+            <label for="carrera">Carrera</label>
+            <input type="text" class="form-control" id="carrera" name="carrera">
+        </div>
+        <div class="form-group">
+            <label for="matricula">Matrícula</label>
+            <input type="text" class="form-control" id="matricula" name="matricula">
+        </div>
+        <div class="form-group">
+            <label for="correoUABC">Correo UABC</label>
+            <input type="email" class="form-control" id="correoUABC" name="correoUABC">
+        </div>
+        <div class="form-group">
+            <label for="correoAlternativo">Correo Alternativo</label>
+            <input type="email" class="form-control" id="correoAlternativo" name="correoAlternativo">
+        </div>
+
+        <!-- Domicilio -->
+        <h3 class="mt-4">Domicilio</h3>
+        <div class="form-group">
+            <label for="calle">Calle y Número</label>
+            <input type="text" class="form-control" id="calle" name="calle">
+        </div>
+        <div class="form-group">
+            <label for="colonia">Colonia</label>
+            <input type="text" class="form-control" id="colonia" name="colonia">
+        </div>
+        <div class="form-group">
+            <label for="codigoPostal">Código Postal</label>
+            <input type="text" class="form-control" id="codigoPostal" name="codigoPostal">
+        </div>
+        <div class="form-group">
+            <label for="municipio">Municipio</label>
+            <input type="text" class="form-control" id="municipio" name="municipio">
+        </div>
+        <div class="form-group">
+            <label for="estado">Estado</label>
+            <input type="text" class="form-control" id="estado" name="estado">
+        </div>
+
+        <!-- Teléfonos -->
+        <h3 class="mt-4">Teléfonos</h3>
+        <div class="form-group">
+            <label for="telefonoCasa">Teléfono de Casa</label>
+            <input type="text" class="form-control" id="telefonoCasa" name="telefonoCasa">
+        </div>
+        <div class="form-group">
+            <label for="telefonoCelular">Teléfono Celular</label>
+            <input type="text" class="form-control" id="telefonoCelular" name="telefonoCelular">
+        </div>
+
+        <!-- Idiomas -->
+        <h3 class="mt-4">Idiomas</h3>
+        <div class="form-group">
+            <label for="ingles">Inglés (%)</label>
+            <input type="number" class="form-control" id="ingles" name="ingles" max="100">
+        </div>
+        <div class="form-group">
+            <label for="espanol">Español (%)</label>
+            <input type="number" class="form-control" id="espanol" name="espanol" max="100">
+        </div>
+        <div class="form-group">
+            <label for="frances">Francés (%)</label>
+            <input type="number" class="form-control" id="frances" name="frances" max="100">
+        </div>
+
+        <!-- Botón Submit -->
+        <button type="submit" class="btn btn-primary mt-4">Submit</button>
+    </form>
+</div>
