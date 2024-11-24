@@ -1,6 +1,44 @@
 ﻿@{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Home Page";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<div id="empleados-container">
+    <!-- Aquí se renderizarán los TextBox -->
+</div>
+
+<button id="cargar-datos" class="btn btn-primary">Cargar Empleados</button>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#cargar-datos").click(function () {
+            $.ajax({
+                url: "/Home/GetEmpleados",
+                type: "POST",
+                success: function (data) {
+                    // Limpia el contenedor
+                    $("#empleados-container").empty();
+
+                    // Verifica si data contiene la información esperada
+                    console.log(data);
+
+                    // Genera los TextBox según los datos
+                    data.forEach(function (empleado, index) {
+                        $("#empleados-container").append(`
+                                <div style="margin-bottom: 10px;">
+                                    <label>Empleado ${index + 1}:</label>
+                                    <input type="text" value="${empleado.numeroEmpleado}" class="form-control" style="width: auto;" readonly />
+                                    <input type="text" value="${empleado.nombre}" class="form-control" style="width: auto;" readonly />
+                                    <input type="text" value="${empleado.correo}" class="form-control" style="width: auto;" readonly />
+                                </div>
+                            `);
+                    });
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error al cargar empleados:", error);
+                }
+            });
+        });
+    });
+</script>
+

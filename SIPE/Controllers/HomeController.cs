@@ -1,16 +1,20 @@
 using Microsoft.AspNetCore.Mvc;
 using SIPE.Models;
+using System.Data;
 using System.Diagnostics;
+using System.Collections.Generic;
 
 namespace SIPE.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly SQLHelper _sqlHelper;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, SQLHelper sqlHelper)
         {
             _logger = logger;
+            _sqlHelper = sqlHelper;
         }
 
         public IActionResult Index()
@@ -23,16 +27,27 @@ namespace SIPE.Controllers
             return View();
         }
 
-        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        //public IActionResult Error()
-        //{
-        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        //}
         [HttpPost]
-        public IActionResult SubmitForm()
+        public IActionResult GetEmpleados()
         {
-            // Procesar los datos enviados
-            return RedirectToAction("Index");
+            var empleados = new List<Empleado>();
+
+            // Llama al stored procedure
+            var dt = _sqlHelper.ExecuteStoredProcedure("spSELECT_Prueba");
+
+            // Mapea el DataTable a una lista de empleados
+            foreach (DataRow row in dt.Rows)
+            {
+                empleados.Add(new Empleado
+                {
+                    NumeroEmpleado = Convert.ToInt32(row["numero_empleado"]),
+                    Nombre = row["nombre"].ToString(),
+                    Correo = row["correo"].ToString()
+                });
+            }
+
+            // Retorna la lista de empleados como JSON
+            return Json(empleados);
         }
     }
 }
